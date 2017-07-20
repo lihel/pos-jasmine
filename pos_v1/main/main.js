@@ -1,11 +1,10 @@
 'use strict'
-function printReceipt(inputs) {
-  let t = countQuantity(inputs);
-  let sum = sumPrice(t);
+let printReceipt = (inputs)=> {
+  let count = countQuantity(inputs);
+  let sum = sumPrice(count);
   sumTotal(sum);
 }
-
-function countQuantity(inputs) {
+let countQuantity = (inputs)=> {
   let arrItems = loadAllItems();
   let carItems = new Array();
 
@@ -26,7 +25,7 @@ function countQuantity(inputs) {
 }
 
 
-function sumPrice(carItems) {
+let sumPrice = (carItems)=> {
   let discount = loadPromotions();
   for (let carItem of carItems) {
 
@@ -45,7 +44,7 @@ function sumPrice(carItems) {
   return carItems;
 }
 
-function sumTotal(arr) {
+let sumTotal = (arr)=> {
   var totalPrice = 0, totalSave = 0;
   let str = "***<没钱赚商店>收据***\n";
   for (let carItem of  arr) {
